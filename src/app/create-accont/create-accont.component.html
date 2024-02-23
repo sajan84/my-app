@@ -12,29 +12,18 @@
       <label for="AccountTypeID">AccountType</label>
       <input type="text" formControlName="AccountTypeID" class="form-control" id="AccountTypeID">
 
-      <div *ngIf="AccountForm.get('customerLastName')!.errors?.['required'] && customerForm.get('customerLastName')!.touched" class="alert alert-danger">AccountType is required</div>
+      <div *ngIf="AccountForm.get('AccountTypeID')!.errors?.['required'] && AccountForm.get('AccountTypeID')!.touched" class="alert alert-danger">AccountType is required</div>
      
     </div>
     <div class="form-group">
-      <label for="address">Address:</label>
-      <input type="text" formControlName="customerAddress" class="form-control" id="address">
+      <label for="balance">balance:</label>
+      <input type="text" formControlName="balance" class="form-control" id="balance" min="5000">
 
-      <div *ngIf="customerForm.get('customerAddress')!.errors?.['required'] && customerForm.get('customerAddress')!.touched" class="alert alert-danger">Address is required</div>
+      <div *ngIf="AccountForm.get('balance')!.errors?.['required'] && AccountForm.get('balance')!.touched" class="alert alert-danger">balance  is required</div>
+      <div *ngIf="AccountForm.get('balance')!.errors?.['min'] && AccountForm.get('balance')!.touched" class="alert alert-danger">Balance must be greater than 5000</div>
       
     </div>
-    <div class="form-group">
-      <label for="mobile">Mobile:</label>
-      <input type="text" formControlName="customerMobile" class="form-control" id="mobile">
-
-      <div *ngIf="customerForm.get('customerMobile')!.errors?.['required'] && customerForm.get('customerMobile')!.touched" class="alert alert-danger">Mobile is required</div>
-      <div *ngIf="customerForm.get('customerMobile')!.errors?.['pattern'] && customerForm.get('customerMobile')!.touched" class="alert alert-danger">Mobile must be 10 digits</div>
-    </div>
-    <div class="form-group">
-      <label for="aadhaarCard">Aadhaar Card:</label>
-      
-      <input type="text" formControlName="customerAdharCard" class="form-control" id="aadhaarCard">
-      <div *ngIf="customerForm.get('customerAdharCard')!.errors?.['required'] && customerForm.get('customerAdharCard')!.touched" class="alert alert-danger">Aadhaar Card is required</div>
-      <div *ngIf="customerForm.get('customerAdharCard')!.errors?.['pattern'] && customerForm.get('customerAdharCard')!.touched" class="alert alert-danger">Aadhaar Card must be 12 digits</div>
-    </div>
+    
+    
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>

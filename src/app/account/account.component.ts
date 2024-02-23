@@ -31,9 +31,10 @@ export class AccountComponent  {
   }
 
   deleteAccount(accountNumber:string){
-this.account.DeleteAccount(accountNumber).subscribe((result)=>{
-    console.log("Account Deleted SucceFully");
+   this.account.DeleteAccount(accountNumber).subscribe((result)=>{
+    this.account.reloadCurrentRoute();
 })
+
   }
   
   // editCustomer(customer:any){
