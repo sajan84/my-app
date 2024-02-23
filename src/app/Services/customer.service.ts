@@ -30,5 +30,8 @@ export class CustomerService {
   EditCustomer(custoemer:any):Observable<any>{
     return this.http.put<any>("https://localhost:7078/api/Customer",custoemer);
   }
+  getCustomer(id:number):Observable<any>{
+    return this.http.get<any>("https://localhost:7078/api/Customer/"+id);
+  }
   
 }

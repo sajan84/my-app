@@ -1,1 +1,39 @@
-<p>transaction works!</p>
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-5 custom">      
+        <button class="btn btn-primary create-button" routerLink="/withdraw">WithDraw</button>
+        <button class="btn btn-primary create-button Deposit" routerLink="/credit">Deposit</button>
+    </div>
+
+    <div class="search-container">
+      
+      <input type="text" placeholder="Enter AccountNumber" [(ngModel)]="searchText"  class="search-input" (input)="onSearchInputChange($event)">
+
+       
+       <button class="btn btn-primary search-button" (click)="searchCustomers()">Search</button>
+
+     </div>
+    <table class="table">
+      <thead>
+        <tr>
+           
+          <th>Account ID</th>
+          <th>Amount</th>
+          <th>Transaction Date</th>
+          <th>Transaction Id</th>
+          <th>Transaction TYpe</th>
+         
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let Transaction of transactionData">
+          <td>{{ Transaction.accountId }}</td>
+          <td>{{ Transaction.amount }}</td>
+          <td>{{ Transaction.transactionDate |date }}</td>
+          <td>{{ Transaction.transactionId }}</td>
+          <td>{{ Transaction.transactionType }}</td>
+         
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>

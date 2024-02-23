@@ -3,6 +3,7 @@ import { CustomerService } from '../Services/customer.service';
 import { log } from 'console';
 import { Router } from '@angular/router';
 import { SharedEditDataService } from '../Services/shared-edit-data.service';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-customer',
@@ -18,6 +19,7 @@ export class CustomerComponent implements OnInit {
     customerData!:any;
     message:any;
     isResult:any;
+    searchText!:any;
     constructor(private customer:CustomerService,private route:Router,private shared:SharedEditDataService) {
       
       
@@ -48,8 +50,51 @@ export class CustomerComponent implements OnInit {
         console.log("Deleted");
         this.customer.reloadCurrentRoute();
       })
+      
          
     }
 
+    searchCustomers(){
+      if (this.searchText) {
+        this.customer.getCustomer(this.searchText.trim()).subscribe(
+          (result) => {
+          console.log(result);
+          this.customerData = result.result;
+        },
+        (error) => {
+          if (error.status === 404) {
+            alert('Customer not found');
+          } else {
+            console.error(error);
+          }
+        }
+        );
+      } else {
+        this.getCustomer();
+      }
+    }
+    onsearchCustomers(){
+      if (this.searchText) {
+        this.customer.getCustomer(this.searchText).subscribe(
+          (result) => {
+          console.log(result);
+          this.customerData = result.result;
+        },
+        (error) => {
+         this.getCustomer();
+        }
+        );
+      } else {
+        this.getCustomer();
+      }
+    }
+
+    onSearchInputChange(event: any) {
+      if (event.target.value === '') { // Check if search input is empty
+        this.getCustomer(); // If empty, fetch all customers
+      }else{
+        this.onsearchCustomers();
+      }
+    }
     
 }

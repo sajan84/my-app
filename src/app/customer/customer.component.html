@@ -1,31 +1,3 @@
-<!-- <table class="table">
-    <thead>
-      <tr>
-        <th>Customer ID</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Address</th>
-        <th>Mobile</th>
-        <th>Adhar Card</th>
-        <th>Account Number</th>
-        <th>Balance</th>
-        <th>Account Type</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let customer of customerData">
-        <td>{{ customer.customerId }}</td>
-        <td>{{ customer.customerFirstName }}</td>
-        <td>{{ customer.customerLastName }}</td>
-        <td>{{ customer.customerAddress }}</td>
-        <td>{{ customer.customerMobile }}</td>
-        <td>{{ customer.customerAdharCard }}</td>
-        <td>{{ customer.accountNumber }}</td>
-        <td>{{ customer.balance }}</td>
-        <td>{{ customer.accountType }}</td>
-      </tr>
-    </tbody>
-  </table> -->
 
   
 
@@ -33,7 +5,20 @@
     <div class="d-flex justify-content-between align-items-center mb-5">
        
         <button class="btn btn-primary create-button" routerLink="/createcustomer">Create New</button>
+        
+        
+        
       </div>
+
+      <div class="search-container">
+      
+        <input type="text" placeholder="Enter Customer Id" [(ngModel)]="searchText"  class="search-input" (input)="onSearchInputChange($event)">
+
+         
+         <button class="btn btn-primary search-button" (click)="searchCustomers()">Search</button>
+
+       </div>
+      
     <table class="table">
       <thead>
         <tr>
@@ -51,7 +36,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let customer of customerData">
+        <tr *ngFor="let customer of customerData" >
+          <!-- <tr *ngFor="let customer of searchText ? searchText : customerData"> -->
           <td>{{ customer.customerId }}</td>
           <td>{{ customer.customerFirstName }}</td>
           <td>{{ customer.customerLastName }}</td>

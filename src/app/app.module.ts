@@ -14,6 +14,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { EditcustomerComponent } from './editcustomer/editcustomer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CreateAccontComponent } from './create-accont/create-accont.component';
+import { FormsModule } from '@angular/forms';
+import { WithdrawComponent } from './withdraw/withdraw.component';
+import { CreditComponent } from './credit/credit.component';
+
 
 
 
@@ -30,6 +34,9 @@ import { CreateAccontComponent } from './create-accont/create-accont.component';
     EditcustomerComponent,
     PageNotFoundComponent,
     CreateAccontComponent,
+    WithdrawComponent,
+    CreditComponent,
+  
  
   ],
   imports: [
@@ -37,7 +44,8 @@ import { CreateAccontComponent } from './create-accont/create-accont.component';
     AppRoutingModule,
     RouterModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration(),

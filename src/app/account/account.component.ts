@@ -9,9 +9,10 @@ import { Router } from '@angular/router';
 })
 export class AccountComponent  {
 
-  AccountData!:any;
+  AccountData:any[]=[];
   message:any;
   isResult:any;
+  searchText!:string;
   constructor(private account:AccountService,private route:Router) {
     
     
@@ -22,7 +23,7 @@ export class AccountComponent  {
 
   getAccount(){
     this.account.getAccount().subscribe((result)=>{
-      this.AccountData=result.result;
+      this.AccountData=result.result
       this.message=result.message;
       this.isResult=result.isResult; 
              
@@ -35,6 +36,56 @@ export class AccountComponent  {
     this.account.reloadCurrentRoute();
 })
 
+  }
+
+  searchAccount(){
+    if (this.searchText.trim()) {
+      this.account.getAccountbyAccountNUmber(this.searchText.trim()).subscribe(
+        (data:any) => {
+        console.log(data);
+       this.AccountData = [data.result] as any[];
+      },
+      (error) => {
+        if (error.status === 404) {
+          alert('Account not found');
+          this.getAccount();
+        } else {
+          this.getAccount();
+          console.error(error);
+        }
+      }
+      );
+    } else{
+      this.getAccount();
+    }
+  }
+  onsearchAccount(){
+    if (this.searchText.trim()) {
+      this.account.getAccountbyAccountNUmber(this.searchText.trim()).subscribe(
+        (data:any) => {
+        console.log(data);
+       this.AccountData = [data.result] as any[];
+      },
+      (error) => {
+        if (error.status === 404) {
+          this.getAccount();
+        } else {
+          this.getAccount();
+          console.error(error);
+        }
+      }
+      );
+    } else{
+      this.getAccount();
+    }
+  }
+
+  onSearchInputChange(event: any) {
+    if (event.target.value === '') { // Check if search input is empty
+      this.getAccount(); // If empty, fetch all customers
+    }else{
+      this.onsearchAccount();
+    }
   }
   
   // editCustomer(customer:any){

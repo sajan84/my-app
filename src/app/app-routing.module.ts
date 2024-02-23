@@ -9,6 +9,9 @@ import { EditcustomerComponent } from './editcustomer/editcustomer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { editauthGuard } from './editauth.guard';
 import { CreateAccontComponent } from './create-accont/create-accont.component';
+import { WithdrawComponent } from './withdraw/withdraw.component';
+import { CreditComponent } from './credit/credit.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,6 +25,8 @@ const routes: Routes = [
   {path:'createcustomer',component:CreateCustomerComponent},
  {path:'editcustomer',component:EditcustomerComponent,canActivate:[editauthGuard]},
  {path:'createaccount',component:CreateAccontComponent},
+ {path:'withdraw',component:WithdrawComponent},
+{path:'credit',component:CreditComponent},
   {path:'**',component:PageNotFoundComponent}
 
 ];

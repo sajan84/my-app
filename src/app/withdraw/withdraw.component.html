@@ -1,0 +1,26 @@
+
+<form [formGroup]="EditForm" class="bio-section"  (ngSubmit)="onSubmit()">
+
+     <div class="form-group">
+        <h3 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color: rgb(128, 128, 128);">WithDraw Form</h3>
+     </div>
+
+    <div class="form-group" >
+        <label for="AccountNumber">Account Number:</label>
+        <input type="text" formControlName="AccountNumber"  class="form-control" id="AccountNumber" >
+        <div *ngIf="EditForm.get('AccountNumber')!.errors?.['required'] && EditForm.get('AccountNumber')!.touched" class="alert alert-danger">Account Number is Required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="Amount">Amount:</label>
+        <input type="text" formControlName="Amount" class="form-control" id="Amount">
+  
+        <div *ngIf="EditForm.get('Amount')!.errors?.['required'] && EditForm.get('Amount')!.touched" class="alert alert-danger">Amount</div>
+      
+      </div>
+     
+      
+
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
