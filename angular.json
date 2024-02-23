@@ -103,11 +103,15 @@
             ],
             "styles": [
               "src/styles.scss"
+              
             ],
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "8e0d5be1-55df-4183-86b2-9d671ce7416c"
   }
 }

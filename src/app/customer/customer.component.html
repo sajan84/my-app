@@ -1,0 +1,73 @@
+<!-- <table class="table">
+    <thead>
+      <tr>
+        <th>Customer ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+        <th>Mobile</th>
+        <th>Adhar Card</th>
+        <th>Account Number</th>
+        <th>Balance</th>
+        <th>Account Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customerData">
+        <td>{{ customer.customerId }}</td>
+        <td>{{ customer.customerFirstName }}</td>
+        <td>{{ customer.customerLastName }}</td>
+        <td>{{ customer.customerAddress }}</td>
+        <td>{{ customer.customerMobile }}</td>
+        <td>{{ customer.customerAdharCard }}</td>
+        <td>{{ customer.accountNumber }}</td>
+        <td>{{ customer.balance }}</td>
+        <td>{{ customer.accountType }}</td>
+      </tr>
+    </tbody>
+  </table> -->
+
+  
+
+  <div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-5">
+       
+        <button class="btn btn-primary create-button" routerLink="/createcustomer">Create New</button>
+      </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Customer ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Address</th>
+          <th>Mobile</th>
+          <th>Adhar Card</th>
+          <th>Account Number</th>
+          <th>Balance</th>
+          <th>Account Type</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of customerData">
+          <td>{{ customer.customerId }}</td>
+          <td>{{ customer.customerFirstName }}</td>
+          <td>{{ customer.customerLastName }}</td>
+          <td>{{ customer.customerAddress }}</td>
+          <td>{{ customer.customerMobile }}</td>
+          <td>{{ customer.customerAdharCard }}</td>
+          <td>{{ customer.accountNumber }}</td>
+          <td>{{ customer.balance }}</td>
+          <td>{{ customer.accountType }}</td>
+          <td>
+            <button class="btn btn-primary" (click)="editCustomer(customer)">Edit</button>
+          </td>
+          <td>
+            <button class="btn btn-danger" (click)="deleteCustomer(customer.customerId)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

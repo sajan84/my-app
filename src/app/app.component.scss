@@ -1,0 +1,47 @@
+// Variables
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$light-color: #f8f9fa;
+$dark-color: #343a40;
+
+// Navbar
+.navbar {
+  background-color: $light-color;
+  border-bottom: 1px solid $secondary-color;
+  display: flex;
+  align-items: center;
+  height: 60px;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .navbar-brand {
+    font-weight: bold;
+    color: $primary-color;
+  }
+
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-end;
+
+    .nav-item {
+      margin-left: 1rem;
+
+      .nav-link {
+        color: $secondary-color;
+        text-decoration: none;
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
