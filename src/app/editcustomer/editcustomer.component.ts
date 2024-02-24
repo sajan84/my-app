@@ -20,7 +20,8 @@ export class EditcustomerComponent implements OnInit {
    this.FillData=this.shared.getcustomer();
     this.customerEditForm = this.formBuilder.group({
 
-      customerId:[this.FillData.customerId,Validators.required],
+     // customerId:[this.FillData.customerId,Validators.required],
+     customerId: [{value: this.FillData.customerId, disabled: true}, Validators.required],
       customerFirstName: [this.FillData.customerFirstName, Validators.required],
       customerLastName: [this.FillData.customerLastName, Validators.required],
       customerAddress: [this.FillData.customerAddress, Validators.required],
