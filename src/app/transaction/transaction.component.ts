@@ -54,34 +54,34 @@ export class TransactionComponent implements OnInit {
     if (this.searchText) {
       this.transaction.getTransctionbyAccountNumber(this.searchText).subscribe(
         (result) => {
-          if (result.isResult=='false') {
-            console.log("inside onserachcustoemr ")
+          if (result.isResult==='false') {
+          
             this.getTransaction();
           }
           else{
-            console.log("inside if else  ")
+          
             this.transactionData = result.result;
           }
-        console.log(result);
+        
         
       },
       (error) => {
-        console.log("onserachcustomer else ")
+        
        this.getTransaction();
       }
       );
     } else {
-      console.log("searchText is blank inside onsearchText")
+      
       this.getTransaction();
     }
   }
 
   onSearchInputChange(event: any) {
     if (event.target.value === '') { // Check if search input is empty
-      console.log("inside onsearchinputchnage");
+     
       this.getTransaction(); // If empty, fetch all customers
     }else{
-      console.log("inside else  onsearchinputchnage");
+      
       this.onsearchCustomers();
     }
   }

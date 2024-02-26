@@ -45,7 +45,11 @@ export class CustomerComponent implements OnInit {
       //this.route.navigate(['editcustomer'], { state: { customer } });
     }
 
-    deleteCustomer(customer:number){
+    deleteCustomer(customer:number):void{
+      var checkWanttoDelete=confirm(`Are You Sure Want To delete customer:${customer} ?`);
+      if (checkWanttoDelete==false) {
+        return;
+      }
       this.customer.DeleteCustomer(customer).subscribe((result)=>{
         console.log("Deleted");
         this.customer.reloadCurrentRoute();

@@ -31,7 +31,11 @@ export class AccountComponent  {
 
   }
 
-  deleteAccount(accountNumber:string){
+  deleteAccount(accountNumber:string):void{
+    var checkWanttoDelete=confirm(`Are You Sure Want To delete Account:${accountNumber} ?`);
+    if (checkWanttoDelete==false) {
+      return;
+    }
    this.account.DeleteAccount(accountNumber).subscribe((result)=>{
     this.account.reloadCurrentRoute();
 })
@@ -63,7 +67,7 @@ export class AccountComponent  {
     if (this.searchText.trim()) {
       this.account.getAccountbyAccountNUmber(this.searchText.trim()).subscribe(
         (data:any) => {
-        console.log(data);
+        
        this.AccountData = [data.result] as any[];
       },
       (error) => {

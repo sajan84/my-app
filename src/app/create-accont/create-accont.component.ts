@@ -22,8 +22,18 @@ export class CreateAccontComponent {
 
     onSubmit(){
         this.account.AddAccoubt(this.AccountForm.value).subscribe((result)=>{
-          this.account.reloadCurrentRoute();
+          if (result.isResult==='false') {
+            alert(result.message);
+          }else{
+            
+            console.log(result);
+            this.account.reloadCurrentRoute();
+          }
+          
+        },
+        (error)=>{
+          alert("some error occur");
         })
-        this.account.reloadCurrentRoute();
+        //this.account.reloadCurrentRoute();
     }
 }

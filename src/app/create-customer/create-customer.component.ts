@@ -45,12 +45,17 @@ export class CreateCustomerComponent {
       
       this.customer.AddCustomer(this.customerForm.value).subscribe(
         (result)=>{
-          this.customer.reloadCurrentRoute();
+          if (result.isResult==='false') {
+            alert(result.message);
+          }else{
+            this.customer.reloadCurrentRoute();
+          }
+          
           }
         
       );
       //this.route.navigate(['customer']);
-        this.customer.reloadCurrentRoute();
+       // this.customer.reloadCurrentRoute();
     } else {
       this.customerForm.markAllAsTouched();
     }

@@ -21,7 +21,7 @@ export class EditcustomerComponent implements OnInit {
     this.customerEditForm = this.formBuilder.group({
 
      // customerId:[this.FillData.customerId,Validators.required],
-     customerId: [{value: this.FillData.customerId, disabled: true}, Validators.required],
+      customerId: [ this.FillData.customerId, Validators.required],
       customerFirstName: [this.FillData.customerFirstName, Validators.required],
       customerLastName: [this.FillData.customerLastName, Validators.required],
       customerAddress: [this.FillData.customerAddress, Validators.required],
@@ -32,8 +32,17 @@ export class EditcustomerComponent implements OnInit {
 
   onSubmit() {
     if (this.customerEditForm.valid) {
-      this.customer.EditCustomer(this.customerEditForm.value).subscribe((result)=>{
-        this.customer.reloadCurrentRoute();
+      this.customer.EditCustomer(this.customerEditForm.value).subscribe(
+        (result)=>{
+        if (result.isResult==='false') {
+          alert(result.message);
+        }else{
+          this.customer.reloadCurrentRoute();
+        }
+        
+      },
+      (error)=>{
+        
       })
     }else {
      alert("Some problem occur")

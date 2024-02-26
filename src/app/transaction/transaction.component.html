@@ -6,7 +6,7 @@
 
     <div class="search-container">
       
-      <input type="text" placeholder="Enter AccountNumber" [(ngModel)]="searchText"  class="search-input" (input)="onSearchInputChange($event)">
+      <input type="text" placeholder="Enter AccountNumber" [(ngModel)]="searchText"  class="search-input" (input)="onSearchInputChange($event)" (keyup.enter)="searchCustomers()">
 
        
        <button class="btn btn-primary search-button" (click)="searchCustomers()">Search</button>

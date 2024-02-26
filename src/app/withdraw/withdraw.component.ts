@@ -19,8 +19,12 @@ export class WithdrawComponent {
   onSubmit(){
     this.account.Debit({accountNumber:this.EditForm.value.AccountNumber,amount:this.EditForm.value.Amount}).subscribe(
       (result)=>{
-      console.log(result);
-        this.account.reloadCurrentRouteTransaction();
+        if (result.isResult==='false') {
+          alert(result.message)
+        }else{
+          this.account.reloadCurrentRouteTransaction();
+        }
+        
 
     },
     (error)=>{

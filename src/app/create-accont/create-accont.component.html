@@ -1,5 +1,5 @@
 
-<form [formGroup]="AccountForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="AccountForm" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
     <div class="form-group">
       <label for="customerId">Customer ID :</label>
       <input type="text" formControlName="customerId" class="form-control" id="customerId">
