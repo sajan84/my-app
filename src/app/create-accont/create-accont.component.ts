@@ -14,7 +14,7 @@ export class CreateAccontComponent {
   }
 
   AccountForm: FormGroup =  new FormGroup({
-    customerId:new FormControl('',Validators.required),
+    customerId:new FormControl('',[Validators.required,Validators.pattern('^[0-9]+$')]),
     AccountTypeID: new FormControl('',Validators.required),
     balance: new FormControl('',[Validators.required,Validators.min(5000)]),
      

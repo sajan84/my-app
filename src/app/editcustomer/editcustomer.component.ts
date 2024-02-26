@@ -21,8 +21,8 @@ export class EditcustomerComponent implements OnInit {
     this.customerEditForm = this.formBuilder.group({
 
      // customerId:[this.FillData.customerId,Validators.required],
-      customerId: [ this.FillData.customerId, Validators.required],
-      customerFirstName: [this.FillData.customerFirstName, Validators.required],
+      customerId: [ this.FillData.customerId,[Validators.required,Validators.pattern('^[a-zA-Z]*$')]],
+      customerFirstName: [this.FillData.customerFirstName,[Validators.required,Validators.pattern('^[a-zA-Z]*$')]],
       customerLastName: [this.FillData.customerLastName, Validators.required],
       customerAddress: [this.FillData.customerAddress, Validators.required],
       customerMobile: [this.FillData.customerMobile, [Validators.required, Validators.pattern('^[0-9]{10}$')]],

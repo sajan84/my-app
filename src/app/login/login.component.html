@@ -1,0 +1,21 @@
+
+<form [formGroup]="loginForm" class="bio-section" (ngSubmit)="onSubmit()">
+  <h2 class="heading">Log in For FinInvest</h2>
+    <div class="form-group">
+      <label for="userName">User Name:</label>
+      <input type="text" formControlName="userName" class="form-control" id="userName">
+
+      <div *ngIf="loginForm.get('userName')!.errors?.['required'] && loginForm.get('userName')!.touched" class="alert alert-danger">username Name is required</div>
+
+   
+    </div>
+    <div class="form-group">
+      <label for="password">password:</label>
+      <input type="password" formControlName="password" class="form-control" id="password">
+
+      <div *ngIf="loginForm.get('password')!.errors?.['required'] && loginForm.get('password')!.touched" class="alert alert-danger">password is required</div>
+     
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Log In</button>
+  </form>

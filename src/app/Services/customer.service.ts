@@ -17,6 +17,9 @@ export class CustomerService {
   AddCustomer(custoemr:any):Observable<any>{
     return this.http.post<any>("https://localhost:7078/api/Customer",custoemr);
   }
+  login(loginUser:any):Observable<any>{
+    return this.http.post<any>('https://localhost:7078/api/Customer/Authentication',loginUser);
+  }
 
   reloadCurrentRoute() {
     let currentUrl = this.apiUrl;

@@ -11,21 +11,25 @@ import { editauthGuard } from './editauth.guard';
 import { CreateAccontComponent } from './create-accont/create-accont.component';
 import { WithdrawComponent } from './withdraw/withdraw.component';
 import { CreditComponent } from './credit/credit.component';
+import { LoginComponent } from './login/login.component';
+import { authGuard } from './auth.guard';
+import { LoaderComponent } from './loader/loader.component';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-
+  { path: '', component: HomeComponent,canActivate:[authGuard] },
+  {path:'login',component:LoginComponent},
   { path: 'customer',
-   component: CustomerComponent  
+   component: CustomerComponent,canActivate:[authGuard] 
  },
-  { path: 'account', component: AccountComponent },
-  { path: 'transaction', component: TransactionComponent },
-  {path:'createcustomer',component:CreateCustomerComponent},
+  { path: 'account', component: AccountComponent,canActivate:[authGuard] },
+  { path: 'transaction', component: TransactionComponent,canActivate:[authGuard] },
+  {path:'createcustomer',component:CreateCustomerComponent,canActivate:[authGuard]},
  {path:'editcustomer',component:EditcustomerComponent,canActivate:[editauthGuard]},
- {path:'createaccount',component:CreateAccontComponent},
- {path:'withdraw',component:WithdrawComponent},
-{path:'credit',component:CreditComponent},
+ {path:'createaccount',component:CreateAccontComponent,canActivate:[authGuard]},
+ {path:'withdraw',component:WithdrawComponent,canActivate:[authGuard]},
+{path:'credit',component:CreditComponent,canActivate:[authGuard]},
+{path:'about',component:LoaderComponent},
   {path:'**',component:PageNotFoundComponent}
 
 ];

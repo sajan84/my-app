@@ -17,6 +17,8 @@ import { CreateAccontComponent } from './create-accont/create-accont.component';
 import { FormsModule } from '@angular/forms';
 import { WithdrawComponent } from './withdraw/withdraw.component';
 import { CreditComponent } from './credit/credit.component';
+import { LoginComponent } from './login/login.component';
+import { LoaderComponent } from './loader/loader.component';
 
 
 
@@ -36,6 +38,8 @@ import { CreditComponent } from './credit/credit.component';
     CreateAccontComponent,
     WithdrawComponent,
     CreditComponent,
+    LoginComponent,
+    LoaderComponent,
   
  
   ],

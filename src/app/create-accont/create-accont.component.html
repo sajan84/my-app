@@ -5,6 +5,7 @@
       <input type="text" formControlName="customerId" class="form-control" id="customerId">
 
       <div *ngIf="AccountForm.get('customerId')!.errors?.['required'] && AccountForm.get('customerId')!.touched" class="alert alert-danger">Customer ID is required</div>
+      <div *ngIf="AccountForm.get('customerId')!.errors?.['pattern'] && AccountForm.get('customerId')!.touched" class="alert alert-danger">Customer ID is invalid</div>
 
    
     </div>
@@ -34,7 +35,7 @@
     
     <div class="form-group">
       <label for="balance">balance:</label>
-      <input type="text" formControlName="balance" class="form-control" id="balance" min="5000">
+      <input type="number" formControlName="balance" class="form-control" id="balance" min="5000">
 
       <div *ngIf="AccountForm.get('balance')!.errors?.['required'] && AccountForm.get('balance')!.touched" class="alert alert-danger">balance  is required</div>
       <div *ngIf="AccountForm.get('balance')!.errors?.['min'] && AccountForm.get('balance')!.touched" class="alert alert-danger">Balance must be greater than 5000</div>

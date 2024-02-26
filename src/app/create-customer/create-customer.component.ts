@@ -16,8 +16,8 @@ export class CreateCustomerComponent {
   }
 
   customerForm: FormGroup =  new FormGroup({
-      customerFirstName:new FormControl('',Validators.required),
-      customerLastName: new FormControl('',Validators.required),
+      customerFirstName:new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z]*$')]),
+      customerLastName: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z]*$')]),
       customerAddress: new FormControl('',Validators.required),
       customerMobile: new FormControl('',[Validators.required,Validators.pattern('^[0-9]{10}$')]),
       customerAdharCard:new FormControl('',[Validators.required,Validators.pattern('^[0-9]{12}$')])

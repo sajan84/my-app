@@ -16,7 +16,7 @@ export class CustomerComponent implements OnInit {
      *
      */
 
-    customerData!:any;
+    customerData!:any[];
     message:any;
     isResult:any;
     searchText!:any;

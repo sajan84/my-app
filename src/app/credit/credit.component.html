@@ -13,7 +13,7 @@
 
      <div class="form-group">
        <label for="Amount">Amount:</label>
-       <input type="text" formControlName="Amount" class="form-control" id="Amount">
+       <input type="number" formControlName="Amount" class="form-control" id="Amount">
  
        <div *ngIf="EditForm.get('Amount')!.errors?.['required'] && EditForm.get('Amount')!.touched" class="alert alert-danger">Amount</div>
      
